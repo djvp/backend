@@ -46,3 +46,7 @@ gem 'nokogiri'
 
 # To use debugger
 # gem 'debugger'
+
+group :production do
+   gem 'rails_12factor'
+end
