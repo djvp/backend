@@ -11,51 +11,6 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130210190535) do
-
-  create_table "atms", :force => true do |t|
-    t.string  "branch",          :limit => 256
-    t.integer "municipality_id",                :null => false
-    t.string  "street",          :limit => 256
-    t.string  "district",        :limit => 256
-    t.string  "zipcode",         :limit => 5
-    t.float   "latitude",                       :null => false
-    t.float   "longitude",                      :null => false
-    t.integer "bank_id",                        :null => false
-  end
-
-  add_index "atms", ["latitude", "longitude", "bank_id"], :name => "lat_lon_bank", :unique => true
-
-  create_table "banks", :force => true do |t|
-    t.string "name", :limit => 64, :null => false
-  end
-
-  create_table "municipalities", :force => true do |t|
-    t.string  "name",      :limit => 256, :null => false
-    t.integer "state_id",                 :null => false
-    t.float   "latitude"
-    t.float   "longitude"
-  end
-
-  create_table "reports", :force => true do |t|
-    t.integer "atm_id",                     :null => false
-    t.integer "type_id",                    :null => false
-    t.date    "reported_at"
-    t.integer "status",      :default => 0
-  end
-
-  create_table "states", :force => true do |t|
-    t.string  "name",      :limit => 64, :null => false
-    t.string  "code",      :limit => 2
-    t.float   "latitude"
-    t.float   "longitude"
-    t.float   "zoom"
-    t.integer "space"
-  end
-
-  create_table "users", :force => true do |t|
-    t.string "username",        :null => false
-    t.string "password_digest"
-  end
+ActiveRecord::Schema.define(:version => 0) do
 
 end
